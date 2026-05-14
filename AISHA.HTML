@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Telegram Predictions | 99% Accurate</title>
+  <!-- Font Awesome 6 for sharp Telegram icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0b0f1c 0%, #1a1f33 100%);
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      margin: 0;
+    }
+
+    /* perfect flexbox outline - the main card */
+    .landing-container {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(18, 22, 40, 0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: linear-gradient(135deg, rgba(20, 25, 45, 0.9) 0%, rgba(15, 18, 35, 0.95) 100%);
+      border: 2px solid rgba(0, 255, 255, 0.25);
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 255, 255, 0.15), 0 0 40px rgba(0, 180, 255, 0.3);
+      border-radius: 3.5rem 3.5rem 3rem 3rem;
+      padding: 2.5rem 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      animation: floatGlow 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatGlow {
+      0% {
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 255, 0.2), 0 0 50px rgba(0, 200, 255, 0.4);
+        transform: translateY(0);
+      }
+      100% {
+        box-shadow: 0 35px 60px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(0, 255, 255, 0.4), 0 0 70px rgba(0, 255, 200, 0.6);
+        transform: translateY(-6px);
+      }
+    }
+
+    /* ----- PROFILE PHOTO BOX with animation at top ----- */
+    .profile-frame {
+      position: relative;
+      margin-bottom: 1.8rem;
+      animation: profilePopIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      filter: drop-shadow(0 10px 15px rgba(0, 255, 255, 0.4));
+    }
+
+    @keyframes profilePopIn {
+      0% {
+        transform: scale(0.3) rotate(-8deg);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.05) rotate(1deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      padding: 3px;
+      background-clip: border-box;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+      display: block;
+      transition: transform 0.3s ease;
+      animation: pulsePhoto 2.8s infinite ease-in-out;
+    }
+
+    @keyframes pulsePhoto {
+      0% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 45px rgba(0, 255, 255, 0.95), 0 0 70px rgba(0, 180, 255, 0.6);
+        transform: scale(1.04);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        transform: scale(1);
+      }
+    }
+
+    /* inner subtle glow ring */
+    .profile-frame::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px dashed rgba(0, 255, 255, 0.5);
+      animation: spinRing 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ----- TELEGRAM CHANNEL NAME ----- */
+    .channel-name {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(to right, #a0f0ff, #4facfe, #00e5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0.8rem 0 0.5rem;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      animation: slideFadeIn 0.8s ease-out, textShine 3s infinite alternate;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes textShine {
+      0% { filter: drop-shadow(0 0 8px #00e5ff); }
+      100% { filter: drop-shadow(0 0 18px #00ffff); }
+    }
+
+    /* ----- JOIN TELEGRAM BUTTON with icon ----- */
+    .join-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      background: linear-gradient(115deg, #0099ff, #00c6ff);
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 180, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      margin: 1.2rem 0 1.6rem;
+      text-decoration: none;
+      animation: btnPulse 2.2s infinite, fadeUp 0.7s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .join-btn i {
+      font-size: 1.6rem;
+      color: #ffffff;
+      filter: drop-shadow(0 0 6px #00ffff);
+      animation: iconBounce 1.8s infinite;
+    }
+
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes btnPulse {
+      0% {
+        box-shadow: 0 0 15px rgba(0, 200, 255, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), 0 10px 30px #0088ff;
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(0, 200, 255, 0.7);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .join-btn:hover {
+      transform: scale(1.06);
+      background: linear-gradient(115deg, #00b4ff, #00e0ff);
+      box-shadow: 0 0 50px #00ffff, 0 15px 35px #0077ff;
+    }
+
+    /* ----- THREE POINTS (best prediction, 99% accurate, sureshot) ----- */
+    .highlights {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 0.5rem 0 1.8rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 2.5rem;
+      padding: 0.9rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #e0f7ff;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+      animation: pointGlide 0.8s ease-out forwards;
+      opacity: 0; /* start hidden, animation fills */
+      transform: translateX(-15px);
+      transition: all 0.25s;
+    }
+
+    .highlight-item:nth-child(1) {
+      animation: pointGlide 0.8s 0.2s ease-out forwards;
+    }
+    .highlight-item:nth-child(2) {
+      animation: pointGlide 0.8s 0.4s ease-out forwards;
+    }
+    .highlight-item:nth-child(3) {
+      animation: pointGlide 0.8s 0.6s ease-out forwards;
+    }
+
+    @keyframes pointGlide {
+      0% {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .highlight-item i {
+      font-size: 1.5rem;
+      color: #00f2ff;
+      filter: drop-shadow(0 0 8px #00ffff);
+      width: 1.8rem;
+      text-align: center;
+    }
+
+    .highlight-item span {
+      background: linear-gradient(to right, #ffffff, #c0f0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .highlight-item:hover {
+      border-color: #00ffff;
+      background: rgba(0, 255, 255, 0.08);
+      transform: translateX(6px);
+      box-shadow: 0 0 28px rgba(0, 255, 200, 0.5);
+    }
+
+    /* ----- SMALL TEXT ADS MANAGED BY NAME with href ----- */
+    .managed-by {
+      margin-top: 1.3rem;
+      font-size: 0.9rem;
+      color: rgba(200, 220, 255, 0.8);
+      background: rgba(10, 15, 30, 0.6);
+      padding: 0.5rem 1.8rem;
+      border-radius: 2rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      animation: subtleFade 1.2s ease-in;
+    }
+
+    @keyframes subtleFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .managed-by a {
+      color: #7df9ff;
+      text-decoration: none;
+      font-weight: 700;
+      background: linear-gradient(to right, #a0f0ff, #00ccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border-bottom: 1px dotted rgba(0, 255, 255, 0.6);
+      transition: all 0.3s;
+      margin-left: 0.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .managed-by a:hover {
+      filter: drop-shadow(0 0 8px cyan);
+      border-bottom: 1px solid cyan;
+      text-shadow: 0 0 12px #00ffff;
+    }
+
+    /* mobile responsiveness */
+    @media (max-width: 400px) {
+      .landing-container {
+        padding: 2rem 1.5rem;
+      }
+      .channel-name {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    
+    <!-- Profile Photo Box with animation -->
+    <div class="profile-frame">
+      <!-- using a stylish avatar placeholder (modern crypto/telegram style) -->
+      <img 
+        src="https://i.pravatar.cc/300?img=68" 
+        alt="Channel Profile" 
+        class="profile-photo"
+        loading="eager"
+        onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Ccircle cx=%2260%22 cy=%2260%22 r=%2258%22 fill=%22%230b0f1c%22 stroke=%22%2300ffff%22 stroke-width=%223%22/%3E%3Ctext x=%2260%22 y=%2270%22 text-anchor=%22middle%22 fill=%22%2300ffff%22 font-size=%2236%22%3E📈%3C/text%3E%3C/svg%3E';"
+      >
+    </div>
+
+    <!-- My Telegram Channel Name -->
+    <div class="channel-name">
+      @CryptoSignalsPro
+    </div>
+
+    <!-- Join Telegram Now Button with Telegram icon -->
+    <a href="https://t.me/yourTelegramChannel" target="_blank" rel="noopener noreferrer" class="join-btn">
+      <i class="fab fa-telegram-plane"></i> Join Telegram Now
+    </a>
+
+    <!-- Three highlight points: Best Prediction, 99% Accurate, Sureshot -->
+    <div class="highlights">
+      <div class="highlight-item">
+        <i class="fas fa-chart-line"></i>
+        <span>🏆 Best Prediction Channel</span>
+      </div>
+      <div class="highlight-item">
+        <i class="fas fa-bullseye"></i>
+        <span>🎯 99% Accurate Signals</span>
+      </div>
+      <div class="highlight-item">
+        <i class="fas fa-check-double"></i>
+        <span>⚡ Sureshot Daily Tips</span>
+      </div>
+    </div>
+
+    <!-- Small text: Ads Managed by Name with href -->
+    <div class="managed-by">
+      <span>Ads managed by</span>
+      <a href="https://t.me/adsmanager" target="_blank" rel="noopener noreferrer">@MediaBuyerPro</a>
+    </div>
+  </div>
+</body>
+</html>
